@@ -9,19 +9,24 @@ var bio = {
   "welcomeMessage" : "CARRIER HAS ARRIVED",
   "skills" : ["Commanding Officers","Piloting Galaxy-Class Starships","Trombone","Diplomacy"]
 };
+
+
  var work = {
   "jobs" : [
     {
       "title" : "First Officer",
       "employer" : "Starfleet",
-      "years" : 7,
-      "Starship" : "USS Enterprise"
+      "dates" : "2368 - 2375",
+      "location" : "USS Enterprise",
+      "description" : "Served with the venerable Captain Jean-Luc Picard, through many exciting and dangerous adventures over the 7 years we were on the ship"
+
     },
     {
       "title" : "Lt. Commander",
       "employer" : "Starfleet",
-      "years" : 8,
-      "Starship" : "USS Titan"
+      "dates" : "2360 - 2368",
+      "location" : "USS Titan",
+      "description" : "Dude I practically ran this ship, no joke."
     }
   ]
 };
@@ -67,19 +72,34 @@ if (bio.skills.length > 0) {
   $("#skills").append(formattedSkill);
   var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
   $("#skills").append(formattedSkill);
-  $("#header").prepend(bio.pictureURL);
 
-}
+};
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureURL)
+$("#header").prepend(bio.pictureURL);
+var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", bio.welcomeMessage);
+$("#header").prepend(formattedWelcomeMsg);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
-for (job in work.jobs)
-{
-  $("#workExperience").append(HTMLworkStart);
-  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+function displayWork() {
+  for (job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
 
-  $(".work-entry:last").append(formattedEmployerTitle);
+    $(".work-entry:last").append(formattedEmployerTitle);
+
+    var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    $(".work-entry:last").append(formattedDates);
+
+    var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    $(".work-entry:last").append(formattedLocation);
+
+    var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(formattedDescription);
+  }
 }
+displayWork();
