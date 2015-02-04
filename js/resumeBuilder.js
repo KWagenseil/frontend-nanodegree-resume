@@ -1,21 +1,24 @@
+var name = "Wiliam T. Riker";
+var role = "First Officer";
+var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedRole = HTMLheaderRole.replace("%data%", role);
+
 var bio = {
-  "name" : "William T. Riker",
-  "role" : "First Officer",
-  "contactInfo" : ["804-647-7908","WTRiker35@gmail.com"],
+  "contactInfo" : ["mobile: 804-647-7908","Email: WTRiker35@gmail.com", "GitHub: KWagenseil", "Twitter: @Callme#1"],
   "pictureURL" : "<img style=\"width:200px;\" src =  \"http://images2.fanpop.com/image/photos/9400000/Commander-William-T-Riker-star-trek-the-next-generation-9406633-2219-2560.jpg\"/>",
   "welcomeMessage" : "CARRIER HAS ARRIVED",
   "skills" : ["Commanding Officers","Piloting Galaxy-Class Starships","Trombone","Diplomacy"]
 };
- var work = {           // WRITE A JSON HERE NEXT WITH DIFFERENT JOB HISTORY
+ var work = {
   "jobs" : [
     {
-      "position" : "First Officer",
+      "title" : "First Officer",
       "employer" : "Starfleet",
       "years" : 7,
       "Starship" : "USS Enterprise"
     },
     {
-      "position" : "Lt. Commander",
+      "title" : "Lt. Commander",
       "employer" : "Starfleet",
       "years" : 8,
       "Starship" : "USS Titan"
@@ -38,8 +41,6 @@ var education = {
     }
   ]
 };
-
-// for (thing in (jobs) {console.log(thing[work]);}
 
 var projects = {
   "learning" : [
@@ -70,7 +71,15 @@ if (bio.skills.length > 0) {
 
 }
 
-var countries = ["Germany","Argentina","Brazil","Netherlands"]
-for(country in countries) {console.log(countries[country]);}
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
 
-for(jobs in work) {console.log(work[jobs]);}
+for (job in work.jobs)
+{
+  $("#workExperience").append(HTMLworkStart);
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+  $(".work-entry:last").append(formattedEmployerTitle);
+}
