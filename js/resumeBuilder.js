@@ -89,19 +89,34 @@ var education = {
   "schools" : [
     {
       "name" : "Starfleet Academy",
-      "location" : "San Francisco",
+      "location" : "San Francisco, CA",
       "degree" : "BA",
       "majors" : ["Piloting", " Diplomacy"],
       "dates" : "2350 - 2357"
     },
     {
-      "name" : "Udacity",
+    "name" : "Virginia Commonwealth University",
+    "location" : "Richmond VA",
+    "degree" : "BA",
+    "majors" : ["English", "French"],
+    "dates" : "2014 - 2018"
+    },
+    {
+      "name" : "Virginia Commonwealth University",
       "location" : "Richmond VA",
-      "degree" : "Nanodegree",
-      "majors" : "Front End Web Developer",
-      "dates" : "2014 - 2015"
+      "degree" : "BS",
+      "majors" : "Environmental Studies",
+      "dates" : "2014 - 2018"
     }
-  ]
+  ],
+    "onlineCourses" : [
+      {
+        "title" : "Front-end Web Developer",
+        "school" : "Udacity",
+        "dates" : "December 2014 - Spring 2014",
+        "url" : "www.udacity.com"
+      }
+    ]
 };
 
 function displayEducation()
@@ -120,7 +135,17 @@ function displayEducation()
       var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
       $(".education-entry:last").append(formattedMajors);
     }
-
+      for (courses in education.onlineCourses)
+      {
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[courses].title);
+        var formattedName = HTMLonlineSchool.replace("%data%", education.onlineCourses[courses].school);
+        var formattedTitleName = formattedTitle + formattedName;
+        $(".education-entry:last").append(formattedTitleName);
+        var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[courses].dates);
+        $(".education-entry:last").append(formattedOnlineDates);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[courses].url);
+        $(".education-entry:last").append(formattedURL);
+      }
 };
 
 displayEducation();
@@ -129,12 +154,20 @@ displayEducation();
 var projects = {
   "projects": [
     {
-  "start" : "December 2014",
-  "title": "Project 1: Portfolio",
-  "dates" : "2015",
-  "description": "Create an online page from a mockup using HTML and CSS",
-  "images": "images/OrangeMug.jpg",
-  "url": "www.udacity.com"
+      "title": "Project 1-A: Orange Mug",
+      "start" : "December 2014",
+      "dates" : "2014",
+      "description": "Create an online page from a mockup using HTML/CSS",
+      "images": "images/OrangeMug.jpg",
+      "url": "www.udacity.com"
+    },
+    {
+      "title": "Project 1-B: Portfolio",
+      "start" : "December 2014",
+      "dates" : "2014",
+      "description": "Create an online portfolio from a mockup using HTML/CSS",
+      "images": "images/Portfolio.jpg",
+      "url": "www.udacity.com"
     }
   ]
 };
