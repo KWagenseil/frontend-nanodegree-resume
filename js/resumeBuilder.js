@@ -46,7 +46,7 @@ function displayBio()
     $("#skills").append(formattedSkill);}
 };
 displayBio();
-// Here starts the WORK var and function
+                          // Here starts the WORK var and function
 var work = {
   "jobs" : [
     {
@@ -60,7 +60,7 @@ var work = {
       "title" : "Lt. Commander",
       "employer" : "Starfleet",
       "dates" : "2360 - 2368",
-      "location" : "USS Titan",
+      "location" : "San Francisco, CA",
       "description" : "Dude I practically ran this ship, no joke."
     }
   ]
@@ -84,43 +84,77 @@ function displayWork()
   }
 }
 displayWork();
-// Here starts the Education var and function
-
+                        // Here starts the Education var and function
 var education = {
   "schools" : [
     {
       "name" : "Starfleet Academy",
       "location" : "San Francisco",
       "degree" : "BA",
-      "majors" : ["Piloting", "Diplomacy"],
+      "majors" : ["Piloting", " Diplomacy"],
       "dates" : "2350 - 2357"
     },
     {
       "name" : "Udacity",
-      "location" : "The internet",
-      "degrees" : "Nanodegree",
+      "location" : "Richmond VA",
+      "degree" : "Nanodegree",
       "majors" : "Front End Web Developer",
       "dates" : "2014 - 2015"
     }
   ]
 };
 
-// Here starts the projects var and function
+function displayEducation()
+{
+    for (school in education.schools)
+    {
+      $("#education").append(HTMLschoolStart);
+      var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+      var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+      var formattedNameDegree = formattedName + formattedDegree;
+      $(".education-entry:last").append(formattedNameDegree);
+      var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+      $(".education-entry:last").append(formattedLocation);
+      var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+      $(".education-entry:last").append(formattedDates);
+      var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+      $(".education-entry:last").append(formattedMajors);
+    }
+
+};
+
+displayEducation();
+
+                        // Here starts the projects var and function
 var projects = {
-  "learning" : [
+  "projects": [
     {
-      "Project1" : "Portfolio",
-      "Project2" : "Resume",
-      "Project3" : "Frogger"
-},
-    {
-      "Class1" : "Intro to Meterology",
-      "Class2" : "Physical Geology"
+  "start" : "December 2014",
+  "title": "Project 1: Portfolio",
+  "dates" : "2015",
+  "description": "Create an online page from a mockup using HTML and CSS",
+  "images": "images/OrangeMug.jpg",
+  "url": "www.udacity.com"
     }
   ]
 };
 
-
+function displayProjects()
+{
+    for (project in projects.projects)
+      {
+        $("#projects").append(HTMLprojectStart);
+        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        $(".project-entry:last").append(formattedTitle);
+        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        $(".project-entry:last").append(formattedDates);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        $(".project-entry:last").append(formattedDescription);
+        var formattedImages = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+        $(".project-entry:last").append(formattedImages);
+      }
+};
+displayProjects();
 
 /* function locationizer (work_obj) {
   var locationArray = [];
