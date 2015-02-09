@@ -1,25 +1,16 @@
-/* var places = {
-      "location" : "Dakar, Senegal",
-      "location" : "Maseru, Lesotho",
-      "location" : "Geneva, Switzerland",
-      "location" : "Strasbourg, France",
-      "location" : "Reston, VA",
-      "location" : "Warsaw, Poland"
-  }; */
-
 var bio = {
   "name" : "William T. Riker",
   "role" : "First Officer",
   "contactInfo" :
           {
           "mobile": "804-647-7908",
-          "email": "WTRiker35@gmail.com",
+          "email": "RikerWT35@spacemail.com",
           "github": "KWagenseil",
           "twitter": "@Callme#1",
-          "location" : "Richmond, VA",
+          "location" : "Earth"
         },
   "bioPic" : "images/Riker.jpg",
-  "welcomeMessage" : "CARRIER HAS ARRIVED",
+  "welcomeMessage" : "First Officer's log, Stardate 41639.2: Welcome aboard.",
   "skills" : ["Commanding Officers","Piloting Galaxy-Class Starships","Trombone","Diplomacy"]
 };
 
@@ -65,16 +56,24 @@ var work = {
       "title" : "First Officer",
       "employer" : "Starfleet",
       "dates" : "2368 - 2375",
-      "location" : "Richmond, VA",
-      "description" : "Served with the venerable Captain Jean-Luc Picard, through many exciting and dangerous adventures over the 7 years we were on the ship"
+      "location" : "San Francisco, CA",
+      "description" : "Second in command of the Federation Starship Enterprise under Captain Jean-Luc Picard.  The main crew includes Lt. Commander Data, an android and our version of Spock, plus he rules, our brilliant engineer Lt. Commander Geordi LaForge who is blind but also not, and also best friends with Data, Dr. Beverly Crusher who has the hots for Picard as early as episode 2 (reciprocated), Lt. Worf, a Klingon in charge of security who's always getting dismissed by Picard because all he ever wants to do is attack because he's a Klingon but he's also a Starfleet officer bla bla, and finally, Deanna Troi, the ship's counselor. Brunette, babe, we have a history. That's all I'm gonna say about that. Perpetual tension there. Be jealous. Also Guinan. Anyway this ship rules."
     },
     {
       "title" : "Lt. Commander",
       "employer" : "Starfleet",
       "dates" : "2360 - 2368",
       "location" : "San Francisco, CA",
-      "description" : "Dude I practically ran this ship, no joke."
-    }
+      "description" : "I don't know much about my history serving on the USS Titan - I'm guessing I was probably a Lt. Commander or something?  Yeah anyway, I think I go on to captain this ship later on.... cuz Data got the Enterprise."
+    },
+/*    {
+    "title" : "Process Coordinator II",
+    "employer" : "Capital One",
+    "dates" : "2010 - Present",
+    "location" : "Richmond, VA",
+    "description" : "Before I served in Starfleet or on any sort of vessel, I was a simple humble worker at a large company back on Earth.  I just kind of fell into it. But I worked hard, and my efforts showed. I got noticed by more and more important people, and I am sure that part of my skillset that I have in my current role was obtained by working that job. However, I finally left that gig to go on to bigger and better things, like BEING ON A SPACESHIP."
+  } */
+
   ]
 };
 
@@ -110,7 +109,7 @@ var education = {
       "name" : "Starfleet Academy",
       "location" : "San Francisco, CA",
       "degree" : "BA",
-      "majors" : ["Piloting", " Diplomacy"],
+      "majors" : ["Piloting", " Diplomacy", " Commanding"],
       "dates" : "2350 - 2357"
     },
     {
@@ -118,7 +117,7 @@ var education = {
     "location" : "Richmond VA",
     "degree" : "BA",
     "majors" : ["English", " French"],
-    "dates" : "2014 - 2018"
+    "dates" : "2004-2008"
     },
     {
       "name" : "Virginia Commonwealth University",
@@ -220,18 +219,28 @@ function displayProjects()
 };
 displayProjects();
 
-/* function locationizer (work_obj) {
-  var locationArray = [];
-
-
-  return locations;
-}
-
 $(document).click(function(loc) {
   var x = loc.pageX;
   var y = loc.pageY;
 
   logClicks(x,y);
-}); */
+});
 
- $("#mapDiv").append(googleMap);
+$("#mapDiv").append(googleMap);
+
+/* function locationizer (work_obj) {
+  var locationArray = [];
+
+
+  return locations;
+} */
+
+/* function inName(name) {
+name = name.trim().split(" ");
+console.log(name);
+name[1] = name[1].toUpperCase();
+name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+return name[0] + " "+name[1];
+};
+
+$('#main').append(internationalizeButton); */
